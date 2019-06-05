@@ -20,3 +20,45 @@ function makeRobot() {
   //Event listener
   document.addEventListener("keydown", moveRobot);
 }
+
+function moveRobot(e) {
+  //check for key press
+  const keyCheck = e.keyCode;
+
+  switch (keyCheck) {
+    //left key
+    case 37:
+      moveLeft();
+      break;
+    //up key
+    case 38:
+      moveUp();
+      break;
+    //right key
+    case 39:
+      moveRight();
+      break;
+    //down key
+    case 40:
+      moveDown();
+      break;
+  }
+  //functions for the 4 different directions
+  function moveLeft() {
+    robotLeft -= 10;
+    robot.style.left = robotLeft + "px";
+  }
+  function moveUp() {
+    robotDown -= 10;
+    robot.style.top = robotDown + "px";
+  }
+  function moveRight() {
+    robotLeft += 10;
+    robot.style.left = robotLeft + "px";
+  }
+  function moveDown() {
+    robotDown += 10;
+    robot.style.top = robotDown + "px";
+  }
+}
+makeRobot();
