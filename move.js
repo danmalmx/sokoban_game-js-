@@ -1,23 +1,22 @@
 let container;
 let robot;
 
-let left = 0;
-let up = 0;
+var robotLeft = 0;
+var robotDown = 0;
 
-let robotLeft = "5px";
-let robotDown = "5px";
-
-// Add robot to screen
-function addRobot() {
+// "Create" robot on screen
+function makeRobot() {
   container = document.querySelector("#container");
-
   robot = document.createElement("img");
+  robot.id = "robot";
   robot.setAttribute("src", "/img/robot.png");
-  robot.style.position = "relative";
-  robot.style.left = "5px";
-  robot.style.top = "5px";
+  robot.style.position = "absolute";
+  robot.style.left = 0;
+  robot.style.top = 0;
+
+  //Add robot to screen
   container.appendChild(robot);
 
-  console.log(robot);
+  //Event listener
+  document.addEventListener("keydown", moveRobot);
 }
-addRobot();
