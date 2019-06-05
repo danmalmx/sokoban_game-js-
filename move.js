@@ -1,12 +1,15 @@
 let container;
 let robot;
 
-var robotLeft = 0;
-var robotDown = 0;
+let robotLeft = 0;
+let robotDown = 0;
 
 // "Create" robot on screen
 function makeRobot() {
   container = document.querySelector("#container");
+  let cw = container.width;
+  let ch = container.heigh;
+
   robot = document.createElement("img");
   robot.id = "robot";
   robot.setAttribute("src", "/img/robot.png");
@@ -28,19 +31,19 @@ function moveRobot(e) {
   switch (keyCheck) {
     //left key
     case 37:
-      moveLeft();
+      robotLeft < 2 ? alert("No!") : moveLeft();
       break;
     //up key
     case 38:
-      moveUp();
+      robotDown < 2 ? alert("No!") : moveUp();
       break;
     //right key
     case 39:
-      moveRight();
+      robotLeft > 759 ? alert("No!") : moveRight();
       break;
     //down key
     case 40:
-      moveDown();
+      robotDown > 349 ? alert("No!") : moveDown();
       break;
   }
   //functions for the 4 different directions
